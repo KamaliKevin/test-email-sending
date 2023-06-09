@@ -6,7 +6,8 @@
 <p>2. After installing Composer, you should be able to run the following command in a <b>Bash</b> terminal:</p>
 <pre>composer require phpmailer/phpmailer</pre>
 
-<p>3. Once installed, require the <b>autoload.php</b> file inside the <b>vendor</b> folder to load the PHPMailer files. The following piece of code should be put in the file that loads all the necessary assets</p>
+<p>3. Once installed, require the <b>autoload.php</b> file inside the <b>vendor</b> folder to load the PHPMailer files. 
+The following piece of code should be put in the file that loads all the necessary assets</p>
 <pre>require '[REST_OF_PATH]/vendor/autoload.php';</pre>
 <p><b>[REST_OF_PATH]</b> indicates the folders/files that are before the <b>vendor</b> folder, if any</p>
 
@@ -17,7 +18,17 @@ use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 </pre>
 
-<p>4. Remember to set as well the server settings for PHPMailer. <b>Always use a sandbox environment when developing</b>. Example of </p>
+<p>4. Remember to set as well the server settings for PHPMailer. <b>Always use a sandbox environment when developing</b>. Example of Mailtrap:</p>
+<pre>
+$mail->isSMTP();
+$mail->Host = "sandbox.smtp.mailtrap.io";
+$mail->SMTPAuth = true;
+$mail->Port = 2525;
+$mail->Username = "your-username";
+$mail->Password = "your-password";
+</pre>
+<p><b>your-username</b> and <b>your-password</b> suggests that you need to put your own username and password from Mailtrap 
+(you can copy-paste this information if you follow this route: Email Testing > Inboxes > [Any inbox] > SMTP Settings > Integrations > PHPMailer)</p>
 
 <p>4. The PHPMailer package should be available to use now in <b>any file</b> you want to use it</p>
 
